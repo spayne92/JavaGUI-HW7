@@ -23,6 +23,7 @@ import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import code.FanPane;
 
 
 public class FanDemo extends Application
@@ -35,9 +36,6 @@ public class FanDemo extends Application
 
 	Button authorButton, problemButton, mainButton;
 
-	double x1, y1, w1, h1;
-	double x2, y2, w2, h2;
-
   @Override
   public void start(Stage mainStage)
 	{
@@ -46,6 +44,11 @@ public class FanDemo extends Application
 
 		// creates grid pane to hold fans
 		fansPane = new GridPane();
+		FanPane first = new FanPane(100, 100);
+		fansPane.add(new FanPane(250, 250), 0, 0);
+		fansPane.add(new FanPane(250, 250), 1, 0);
+		fansPane.add(new FanPane(250, 250), 0, 1);
+		fansPane.add(new FanPane(250, 250), 1, 1);
 
 		// creates pane to hold buttons at top of window
 		hb_top = new HBox();
@@ -74,7 +77,7 @@ public class FanDemo extends Application
 		mainPane.setBottom(null);
 
 		// creates scene and defines width/height
-		mainScene = new Scene(mainPane, 600, 400);
+		mainScene = new Scene(mainPane, 500, 550);
 
 		// sets scene and makes it visible
 		mainStage.setScene(mainScene);
@@ -92,28 +95,28 @@ public class FanDemo extends Application
 
 				// Creating text boxes with info about author
 				Text author_text_1 = new Text(10, 40,
-					"  Name: 		 Scott Payne");
+					"Name: 		 Scott Payne");
 				author_text_1.setFont(new Font(14));
 				author_text_1.setFill(Color.BLACK);
 				author_text_1.setWrappingWidth(600);
 				author_text_1.setTextAlignment(TextAlignment.JUSTIFY);
 
 				Text author_text_2 = new Text(10, 40,
-					"  Email:		 sfpr43@mst.edu");
+					"Email:		 sfpr43@mst.edu");
 				author_text_2.setFont(new Font(14));
 				author_text_2.setFill(Color.BLACK);
 				author_text_2.setWrappingWidth(600);
 				author_text_2.setTextAlignment(TextAlignment.JUSTIFY);
 
 				Text author_text_3 = new Text(10, 40,
-					"  Height: 		6'2\"");
+					"Height: 		6'2\"");
 				author_text_2.setFont(new Font(14));
 				author_text_2.setFill(Color.BLACK);
 				author_text_2.setWrappingWidth(600);
 				author_text_2.setTextAlignment(TextAlignment.JUSTIFY);
 
 				Text author_text_4 = new Text(10, 40,
-				"  Comment: 	This is pointless.");
+				"Comment: 	This is pointless.");
 				author_text_2.setFont(new Font(14));
 				author_text_2.setFill(Color.BLACK);
 				author_text_2.setWrappingWidth(600);
@@ -140,17 +143,17 @@ public class FanDemo extends Application
 
 				// Creating text boxes describing problem
 				Text problem_text_1 = new Text(10, 40,
-          "  14.9: Create four fans:");
+          "14.9: Create four fans:");
 				problem_text_1.setFont(new Font(14));
         problem_text_1.setFill(Color.BLACK);
-        problem_text_1.setWrappingWidth(600);
+        problem_text_1.setWrappingWidth(400);
         problem_text_1.setTextAlignment(TextAlignment.JUSTIFY);
 
 				Text problem_text_2 = new Text(10, 40,
-					"  	Write a program that places four fans in a GridPane with two rows and two columns");
+					"Write a program that places four fans in a GridPane with two rows and two columns");
 				problem_text_2.setFont(new Font(14));
         problem_text_2.setFill(Color.BLACK);
-        problem_text_2.setWrappingWidth(600);
+        problem_text_2.setWrappingWidth(400);
         problem_text_2.setTextAlignment(TextAlignment.JUSTIFY);
 
 				Image solution_img = new Image("source/solution_img.jpg");
@@ -175,16 +178,6 @@ public class FanDemo extends Application
 			}
 		});
 	}
-
-	/** Triangle creation method */
-	public Polygon createTriangle(double x, double y, double w, double h)
-	{
-	  Polygon t = new Polygon(x, y, (x+w), y, (x+(w/2)), (y+h));
-		t.setFill(Color.GREEN);
-		//t.setFill(null);
-		t.setStrokeWidth(3);
-	  return t;
-  }
 
 	/** Main method */
   public static void main(String[] args)
