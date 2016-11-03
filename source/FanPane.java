@@ -17,7 +17,7 @@ public class FanPane extends Pane
   private Circle outerCircle, innerCircle;
 
   /** Constructor for FanPane. Builds a fan based on w/h parameters */
-  public FanPane(double w, double h)
+  public FanPane(double w, double h, int num_blades)
   {
     this.width = w;
     this.height = h;
@@ -31,10 +31,10 @@ public class FanPane extends Pane
     getChildren().add(this.outerCircle);
 
     // adding 'blades' as arcs to inside of the outer circle
-    for(int i = 0; i < 8; i++)
+    for(int i = 0; i < num_blades; i++)
     {
       arcs[i] = new Arc(width/2, height/2, radius * 0.9, radius * 0.9,
-                        initAngle + i*45, 25.0);
+                        initAngle + i*(360/num_blades), ((360/num_blades)/2));
       arcs[i].setFill(Color.RED);
       arcs[i].setType(ArcType.ROUND);
       getChildren().add(arcs[i]);

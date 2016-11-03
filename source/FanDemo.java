@@ -44,11 +44,10 @@ public class FanDemo extends Application
 
 		// creates grid pane to hold fans
 		fansPane = new GridPane();
-		FanPane first = new FanPane(100, 100);
-		fansPane.add(new FanPane(250, 250), 0, 0);
-		fansPane.add(new FanPane(250, 250), 1, 0);
-		fansPane.add(new FanPane(250, 250), 0, 1);
-		fansPane.add(new FanPane(250, 250), 1, 1);
+		fansPane.add(new FanPane(250, 250, 8), 0, 0);
+		fansPane.add(new FanPane(250, 250, 8), 1, 0);
+		fansPane.add(new FanPane(250, 250, 8), 0, 1);
+		fansPane.add(new FanPane(250, 250, 8), 1, 1);
 
 		// creates pane to hold buttons at top of window
 		hb_top = new HBox();
